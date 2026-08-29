@@ -1,6 +1,7 @@
 import { IsEmail } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { UserType } from "../utils/enums";
+import { Exclude } from "class-transformer";
 
 @Entity('users')
 export class User{
@@ -10,6 +11,7 @@ export class User{
     @Column({unique: true})
     email!: string;
     
+    @Exclude()
     @Column()
     password!: string;
 
